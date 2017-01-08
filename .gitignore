@@ -1,0 +1,7 @@
+/build
+/node_modules
+/typings
+/.idea
+/src/css
+/src/libs
+/src/scripts
