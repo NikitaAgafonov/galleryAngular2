@@ -13,3 +13,7 @@ Great! You can try application:
 ```
 gulp watch
 ```
+or go to :
+```
+https://nikitaagafonov.github.io/galleryAngular2/
+```

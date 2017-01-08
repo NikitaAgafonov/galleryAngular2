@@ -5,3 +5,5 @@
 /src/css
 /src/libs
 /src/scripts
+/src/babel/**/*.js
+/src/babel/**/*.map
