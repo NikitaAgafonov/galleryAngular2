@@ -33,6 +33,7 @@ const gulp                 = require('gulp'),
     ],
 	config                 = {
 		modules: true,
+		typeScript: false,
 		project: 'src/',
 		img: 'src/img',
 		buildProject: 'build/',
@@ -104,7 +105,7 @@ gulp.task('babel', () => {
         .pipe(gulp.dest(config.scripts));
 });
 
-gulp.task('es6', () => {
+gulp.task('es6', (config.typeScript) ? ['typeScript']:[], () => {
     browserify(config.mainJS)
         .transform('babelify', {
             presets: ['es2015']
@@ -124,7 +125,7 @@ gulp.task('typeScript', function () {
         .pipe(gulp.dest(config.babelES));
 });
 
-gulp.task('watch', ['browser-sync', 'sass', 'typeScript', 'es6'], function () {
+gulp.task('watch', ['browser-sync', 'sass', 'es6'], function () {
     gulp.watch(config.babelES+'/**/*.ts', ['typeScript']);
 	gulp.watch(config.sass+'/**/*.+(scss|sass)', ['sass']);
 	(config.modules) ? gulp.watch(config.babelES+'/main.+(js|jsx)', ['es6']): gulp.watch(config.babelES+'/**/*.+(js|jsx)', ['babel']);
@@ -136,8 +137,9 @@ gulp.task('cleanProj', function () {
 	return del([config.buildProject+'**/*'])
 });
 
-gulp.task('build', ['cleanProj', 'copyLibs', 'img', 'sass', 'typeScript', (config.modules) ? 'es6' : 'babel'], function () {
-    return gulp.src(config.project+'*.html')
+gulp.task('build', ['cleanProj', 'img', 'sass', (config.modules) ? 'es6' : 'babel'], function () {
+
+	return gulp.src(config.project+'*.html')
         .pipe(useref(config.project))
         .pipe(gulpif('*.js', uglify()))
         .pipe(gulpif('*.css', autoprefixer()))
