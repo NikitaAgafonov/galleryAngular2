@@ -33,7 +33,7 @@ const gulp                 = require('gulp'),
     ],
 	config                 = {
 		modules: true,
-		typeScript: false,
+		typeScript: true,
 		project: 'src/',
 		img: 'src/img',
 		buildProject: 'build/',
