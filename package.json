@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm install && typings install && bower i && gulp copyLibs"
+    "start": "npm install && typings install && bower i && gulp copyLibs && gulp typeScript"
   },
   "author": "NAgafonov",
   "license": "ISC",
