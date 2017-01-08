@@ -1,4 +1,4 @@
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
   .popup__content {
     width: 100%;
     min-height: 100%;
@@ -38,5 +38,20 @@
   .popup__content {
     margin-top: 0;
     min-height: 100%;
+  }
+}
+
+@media screen and (max-height: 800px) {
+  .popup__content {
+    margin-top: 0;
+    min-height: 100%;
+  }
+  .popup__content_image {
+    .center {
+      img {
+        max-width: 100%;
+        min-height: 100%;
+      }
+    }
   }
 }
